@@ -10,3 +10,4 @@ cd ~vagrant/syschat
 bundle install
 
 
+rake db:migrate RAILS_ENV=development
