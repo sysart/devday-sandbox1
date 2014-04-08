@@ -4,12 +4,18 @@
   <strong>Name:</strong>
   <%= @chatroom.name %>
   <% @messages.each do |message| %>
-  	<div><%= message.message %></div>
+  	<div><%= message.text %></div>
   <% end %>
 </p>
 
 
-<!-- TODO: form_for @message -->
+<p>
+<%= form_for :message, :url => {:action => 'create', :controller => 'messages'} do |f| %>
+	message <%= f.text_field :text %>
+	<%= f.hidden_field :chatroom_id, :value => @chatroom.id %>
+	<%= f.submit %>
+<% end %>
+</p>
 
 
 <%= link_to 'Edit', edit_chatroom_path(@chatroom) %> |
