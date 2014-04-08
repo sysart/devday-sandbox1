@@ -12,7 +12,7 @@ get "sign_up" => "users#new"
 get "log_in" => "sessions#new" # nope
 get "log_out" => "sessions#destroy" # nope
 
-  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/:provider/callback', to: 'sessions#google_login'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
  
