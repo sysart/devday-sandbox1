@@ -2,9 +2,16 @@ Syschat::Application.routes.draw do
   get "sessions/new"
   get "users/new"
   get "welcome/index"
+
   resources :messages
   resources :chatrooms
+  resources :users
+  resources :sessions
   
+get "sign_up" => "users#new"
+get "log_in" => "sessions#new" # nope
+get "log_out" => "sessions#destroy" # nope
+
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
