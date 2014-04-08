@@ -1,4 +1,6 @@
 class ChatroomsController < ApplicationController
+  
+  before_filter :logged_in?
   before_action :set_chatroom, only: [:show, :edit, :update, :destroy]
 
   # GET /chatrooms
