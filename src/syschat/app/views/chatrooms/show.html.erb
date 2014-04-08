@@ -13,7 +13,7 @@
 <%= form_for :message, :url => {:action => 'create', :controller => 'messages'} do |f| %>
 	message <%= f.text_field :text %>
 	<%= f.hidden_field :chatroom_id, :value => @chatroom.id %>
-	<%= f.submit %>
+	<%= f.submit text='Uusi viesti'%>
 <% end %>
 </p>
 
