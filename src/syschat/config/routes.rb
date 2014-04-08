@@ -12,6 +12,12 @@ get "sign_up" => "users#new"
 get "log_in" => "sessions#new" # nope
 get "log_out" => "sessions#destroy" # nope
 
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+ 
+  resources :sessions, only: [:create, :destroy]
+
   root 'welcome#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
