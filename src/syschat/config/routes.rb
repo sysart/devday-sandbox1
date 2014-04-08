@@ -1,4 +1,5 @@
 Syschat::Application.routes.draw do
+  get "sessions/new"
   get "users/new"
   get "welcome/index"
   resources :messages
