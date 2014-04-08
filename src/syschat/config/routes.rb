@@ -1,9 +1,11 @@
 Syschat::Application.routes.draw do
+  get "users/new"
   get "welcome/index"
   resources :messages
   resources :chatrooms
   
   root 'welcome#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
