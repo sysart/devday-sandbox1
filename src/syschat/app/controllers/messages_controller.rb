@@ -10,6 +10,7 @@ class MessagesController < ApplicationController
   # GET /messages/1
   # GET /messages/1.json
   def show
+    redirect_to chatroom_path(:id => @message.chatroom_id)
   end
 
   # GET /messages/new
