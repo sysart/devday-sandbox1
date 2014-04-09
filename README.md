@@ -1,8 +1,5 @@
-devday-sandbox1
-===============
 
-A.K.A. Syschat
+SysChat
 
 
-
-WIKI: https://github.com/sysart/devday-sandbox1/wiki
+WIKI: https://github.com/sysart/syschat/wiki
