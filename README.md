@@ -1,6 +1,7 @@
 devday-sandbox1
 ===============
 
-SA Kehityspäivien sandbox #1. 
+A.K.A. Syschat
+
 
 WIKI: https://github.com/sysart/devday-sandbox1/wiki
