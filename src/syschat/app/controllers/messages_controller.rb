@@ -62,6 +62,17 @@ class MessagesController < ApplicationController
     end
   end
 
+  def events
+    response.headers["Content-Type"] = "text/event-stream"
+    redis = Redis.new
+    redis.subscribe('message.create') do |on|
+      on.message do |event, data|
+        response.stream.write("data: #{data}\n\n")
+      end
+    end
+    response.stream.close
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_message
