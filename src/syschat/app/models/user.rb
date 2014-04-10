@@ -2,6 +2,8 @@ require 'bcrypt'
 
 class User < ActiveRecord::Base
 
+  attr_accessor :password
+
   validates_presence_of :email
   validates_uniqueness_of :email
   #validates_presence_of :password, :on => :create -- no password on google signin...
@@ -19,15 +21,15 @@ class User < ActiveRecord::Base
 
   def authenticate(password)
     if password_salt.nil?
-      password.empty?
+      false
     else      
-      BCrypt::Engine.hash_secret(password, password_salt)
+      password_hash == BCrypt::Engine.hash_secret(password, password_salt)
     end
   end
 
 
   def encrypt_password
-    if defined?(password) && password.present?
+    if password.present?
       self.password_salt = BCrypt::Engine.generate_salt
       self.password_hash = BCrypt::Engine.hash_secret(password, password_salt)
     end

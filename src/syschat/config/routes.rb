@@ -8,14 +8,14 @@ Syschat::Application.routes.draw do
   resources :users
   resources :sessions
   
-get "sign_up" => "users#new"
-get "log_in" => "sessions#new" # nope
-get "log_out" => "sessions#destroy" # nope
+  get "sign_up" => "users#new"
+  get "log_in" => "sessions#new"
+  get "log_out" => "sessions#destroy"
+  get 'signout', to: 'sessions#destroy', as: 'signout'
 
   get 'auth/:provider/callback', to: 'sessions#google_login'
   get 'auth/failure', to: redirect('/')
-  get 'signout', to: 'sessions#destroy', as: 'signout'
- 
+  
   resources :sessions, only: [:create, :destroy]
 
   root 'welcome#index'
