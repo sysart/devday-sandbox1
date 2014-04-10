@@ -58,8 +58,8 @@
               <% if current_user %>                
                 <li><%= link_to "Log out", log_out_path %></li>
               <% else %>
-                <li><%= link_to "Sign up", "/sign_up"  %></li>           
-                <li><%= link_to "Log in", log_in_path %></li>
+                <li><%= link_to "Create account", "/sign_up"  %></li>           
+                <li><%= link_to "Sign in", log_in_path %></li>
                 <li><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></li>
               <% end %>
             </ul>

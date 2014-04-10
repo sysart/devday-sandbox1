@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def logged_in? 
     unless session[:user_id] 
-      flash[:notice] = "You need to log in first." 
+      flash[:notice] = "You need to sign in first." 
       redirect_to root_path
       return false 
     else 

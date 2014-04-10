@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(params.require(:user).permit(:email, :password))
     if @user.save
       session[:user_id] = @user.id
-      redirect_to root_url, :notice => "Signed up!"
+      redirect_to "/chatrooms", :notice => "Welcome to Syschat " + @user.email + "!";
     else
       render "new"
     end
