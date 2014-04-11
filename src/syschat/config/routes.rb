@@ -15,6 +15,8 @@ Syschat::Application.routes.draw do
 
   get 'auth/:provider/callback', to: 'sessions#google_login'
   get 'auth/failure', to: redirect('/')
+
+  get 'messages/events' => 'messages#events'
   
   resources :sessions, only: [:create, :destroy]
 
