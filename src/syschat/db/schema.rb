@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140408095401) do
+ActiveRecord::Schema.define(version: 20140427170000) do
 
   create_table "chatrooms", force: true do |t|
     t.string   "name"
@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20140408095401) do
     t.integer  "chatroom_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "userId"
   end
 
   create_table "users", force: true do |t|

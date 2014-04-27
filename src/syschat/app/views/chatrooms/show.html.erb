@@ -4,7 +4,7 @@
   <strong>Name:</strong>
   <%= @chatroom.name %>
   <% @messages.each do |message| %>
-  	<div><%= message.text %></div>
+  	<div><%= User.find(message.userId).email %>: <%= message.text %></div>
   <% end %>
 </p>
 
