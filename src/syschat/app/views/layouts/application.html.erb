@@ -41,33 +41,39 @@
     <div class="navbar navbar-fluid-top">
       <div class="navbar-inner">
         <div class="container-fluid">
-
-
-
           <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Syschat</a>
-          <% if current_user %>
-            <span class="nav navbar-text"><%= current_user.email %></span>
-          <% end %>          
-          <div class="container-fluid nav-collapse">
+            <a class="brand" href="/">Syschat</a>
             <ul class="nav">
-              <% if current_user %>                
+               <% if current_user %>
+                <li><%= link_to "Chatrooms", "/chatrooms"  %></li>      
+                <span class="nav navbar-text"><%= current_user.email %></span>
                 <li><%= link_to "Log out", log_out_path %></li>
               <% else %>
                 <li><%= link_to "Create account", "/sign_up"  %></li>           
                 <li><%= link_to "Sign in", log_in_path %></li>
                 <li><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></li>
+                <li><a href="#test_modal" data-toggle="modal">Sign in (popup version)</a></li>
               <% end %>
             </ul>
-          </div><!--/.nav-collapse -->
         </div>
       </div>
     </div>
 
+    <div class="modal fade" id="test_modal">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal">&times;</a>
+        <h3>Log in</h3>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+          <p class="button"><%= submit_tag "Log in" %></p>
+      </div>
+    </div>
 
     <div class="container-fluid">
       <div class="row-fluid">
