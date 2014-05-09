@@ -1,5 +1,4 @@
 class ChatroomsController < ApplicationController
-  include ActionController::Live
   
   before_filter :logged_in?
   before_action :set_chatroom, only: [:show, :edit, :update, :destroy]

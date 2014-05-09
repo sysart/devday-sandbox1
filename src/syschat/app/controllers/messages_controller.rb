@@ -1,10 +1,12 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  include ActionController::Live
+  before_action :set_message, only: [:show, :edit, :update, :destroy, :events]
 
   # GET /messages
   # GET /messages.json
   def index
     @messages = Message.all
+    events
   end
 
   # GET /messages/1
@@ -63,13 +65,16 @@ class MessagesController < ApplicationController
   end
 
   def events
+    puts "HERE WE ARE IN EVENTS"
     response.headers["Content-Type"] = "text/event-stream"
-    redis = Redis.new
-    redis.subscribe('message.create') do |on|
+    #TODO: change strategy. Lets use angularJS
+    #redis = Redis.new
+    #redis.subscribe('message.create') do |on|
       on.message do |event, data|
         response.stream.write("data: #{data}\n\n")
+        puts "HERE WE STREAMED SOMETHING"
       end
-    end
+    #end
     response.stream.close
   end
 
